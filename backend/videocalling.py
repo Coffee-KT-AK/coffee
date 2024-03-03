@@ -17,6 +17,9 @@ def join(message):
 
 @socketio.on('data')
 def transfer_data(message):
+    print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+    print(message)
+    print("###################################")
     username = message['username']
     room = message['room']
     data = message['data']
@@ -25,4 +28,4 @@ def transfer_data(message):
 
 
 if __name__ == '__main__':
-    socketio.run(app, host="0.0.0.0", port=9000)
+    socketio.run(app, host="0.0.0.0", port=9000, ssl_context=('cert.pem', 'key.pem'))
